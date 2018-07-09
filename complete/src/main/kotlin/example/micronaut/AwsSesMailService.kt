@@ -12,22 +12,17 @@ import io.micronaut.context.annotation.Value
 import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 
-@Singleton
-@Requires(condition = AwsSesMailCondition::class)
-@Primary
-class AwsSesMailService(@Value("\${AWS_REGION:none}") awsRegionEnv: String,
+@Singleton // <1>
+@Requires(condition = AwsSesMailCondition::class) // <2>
+@Primary // <3>
+class AwsSesMailService(@Value("\${AWS_REGION:none}") awsRegionEnv: String,  // <4>
                         @Value("\${AWS_SOURCE_EMAIL:none}") sourceEmailEnv: String,
                         @Value("\${aws.region:none}") awsRegionProp: String,
                         @Value("\${aws.sourceemail:none}") sourceEmailProp: String,
-                        protected val awsCredentialsProviderService: AwsCredentialsProviderService?) : EmailService {
+                        private val awsCredentialsProviderService: AwsCredentialsProviderService?) : EmailService {
 
-    protected val awsRegion: String
-    protected val sourceEmail: String
-
-    init {
-        this.awsRegion = if (awsRegionEnv != "none") awsRegionEnv else awsRegionProp
-        this.sourceEmail = if (sourceEmailEnv != "none") sourceEmailEnv else sourceEmailProp
-    }
+    private val awsRegion: String = if (awsRegionEnv != "none") awsRegionEnv else awsRegionProp
+    private val sourceEmail: String = if (sourceEmailEnv != "none") sourceEmailEnv else sourceEmailProp
 
     private fun bodyOfEmail(email: Email): Body {
         if (email.htmlBody() != null && !email.htmlBody()!!.isEmpty()) {

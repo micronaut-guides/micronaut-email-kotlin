@@ -9,10 +9,10 @@ import javax.validation.Valid
 
 @Controller("/mail") // <1>
 @Validated // <2>
-class MailController(protected val emailService: EmailService) {  // <3>
+open class MailController(private val emailService: EmailService) {  // <3>
 
     @Post("/send") // <4>
-    fun send(@Body @Valid cmd: EmailCmd): HttpResponse<*> {  // <5>
+    open fun send(@Body @Valid cmd: EmailCmd): HttpResponse<*> {  // <5>
         emailService.send(cmd)
         return HttpResponse.ok<Any>() // <6>
     }

@@ -3,9 +3,6 @@ Add a logger to get more visibility:
 [source,xml]
 .src/main/resources/logback.xml
 ----
-...
-..
-.
 include::{sourceDir}/src/main/resources/logback.xml[]
 ----
 

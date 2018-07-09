@@ -24,9 +24,9 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/SendGridEmailCondition.kt
 Add a test:
 
 [source,groovy]
-.src/test/groovy/example/micronaut/SendGridEmailConditionSpec.groovy
+.src/test/kotlin/example/micronaut/SendGridEmailConditionSpec.kt
 ----
-include::{sourceDir}/src/test/groovy/example/micronaut/SendGridEmailConditionSpec.groovy[]
+include::{sourceDir}/src/test/kotlin/example/micronaut/SendGridEmailConditionSpec.kt[]
 ----
 
 [source,java]
@@ -38,12 +38,3 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/SendGridEmailService.kt[]
 <1> Use `javax.inject.Singleton` to designate a class a a singleton
 <2> Bean will not loaded unless condition is met.
 <3> Values will be resolved from system properties.
-
-
-Add a test:
-
-[source,groovy]
-.src/test/groovy/example/micronaut/SendGridEmailServiceSpec.groovy
-----
-include::{sourceDir}/src/test/groovy/example/micronaut/SendGridEmailServiceSpec.groovy[]
-----

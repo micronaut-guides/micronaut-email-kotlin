@@ -12,9 +12,9 @@ import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 import java.io.IOException
 
-@Singleton
-@Requires(condition = SendGridEmailCondition::class)
-class SendGridEmailService(@Value("\${SENDGRID_APIKEY:none}") apiKeyEnv: String,
+@Singleton // <1>
+@Requires(condition = SendGridEmailCondition::class) // <2>
+class SendGridEmailService(@Value("\${SENDGRID_APIKEY:none}") apiKeyEnv: String,  // <3>
                                     @Value("\${SENDGRID_FROM_EMAIL:none}") fromEmailEnv: String,
                                     @Value("\${sendgrid.apikey:none}") apiKeyProp: String,
                                     @Value("\${sendgrid.fromemail:none}") fromEmailProp: String) : EmailService {

@@ -7,14 +7,14 @@ import javax.inject.Singleton
 import com.amazonaws.auth.BasicAWSCredentials
 import io.micronaut.context.annotation.Value
 
-@Singleton
-@Requires(condition = AwsCredentialsProviderCondition::class)
-class AwsCredentialsProviderService(@param:Value("\${AWS_ACCESS_KEY_ID:none}") val accessKeyEnv : String,
+@Singleton // <1>
+@Requires(condition = AwsCredentialsProviderCondition::class)  // <2>
+class AwsCredentialsProviderService(@param:Value("\${AWS_ACCESS_KEY_ID:none}") val accessKeyEnv : String,  // <3>
                                     @param:Value("\${AWS_SECRET_KEY:none}") val secretKeyEnv : String,
                                     @param:Value("\${aws.accesskeyid:none}") val accessKeyProp : String,
                                     @param:Value("\${aws.secretkey:none}") val secretKeyProp : String) : AWSCredentialsProvider {
-    private val accessKey : String
-    private val secretKey : String
+    val accessKey : String
+    val secretKey : String
 
     init {
         if (accessKeyEnv != "none") {

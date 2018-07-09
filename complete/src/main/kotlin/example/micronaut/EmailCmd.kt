@@ -1,29 +1,31 @@
 package example.micronaut
 
+//tag::clazzwithannotations[]
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 @EmailConstraints
 class EmailCmd : Email {
+//end::clazzwithannotations[]
 
     //tag::properties[]
     @NotBlank
     @NotNull
-    val recipient: String? = null
+    var recipient: String? = null
 
     @NotBlank
     @NotNull
-    val subject: String? = null
+    var subject: String? = null
 
-    val cc: List<String>? = null
+    var cc: List<String>? = null
 
-    val bcc: List<String>? = null
+    var bcc: List<String>? = null
 
-    val htmlBody: String? = null
+    var htmlBody: String? = null
 
-    val textBody: String? = null
+    var textBody: String? = null
 
-    val replyTo: String? = null
+    var replyTo: String? = null
     //end::properties[]
 
     //tag::settersandgetters[]

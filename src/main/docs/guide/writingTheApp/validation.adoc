@@ -15,15 +15,14 @@ include::{sourceDir}/build.gradle[tag=hibernate-validator]
 Create the next test:
 
 [source,java]
-.src/test/java/example/micronaut/MailControllerValidationSpec.groovy
+.src/test/kotlin/example/micronaut/MailControllerValidationSpec.kt
 ----
-include::{sourceDir}/src/test/groovy/example/micronaut/MailControllerValidationSpec.groovy[]
+include::{sourceDir}/src/test/kotlin/example/micronaut/MailControllerValidationSpec.kt[]
 ----
 
-<1> The AutoCleanup extension makes sure the `close()` method of an object (e.g. `EmbeddedServer`) is called each time a feature method is finished
-<2> To run the application from a unit test you can use the http://docs.micronaut.io/snapshot/api/io/micronaut/runtime/server/EmbeddedServer.html[EmbeddedServer] interface
-<3> Register a `HttpClient` bean in the application context and point it to the embedded server URL. The `EmbeddedServer` interface provides the URL of the server under test which runs on a random port.
-<4> Creating HTTP Requests is easy thanks to Micronaut's fluid API.
+<1> To run the application from a unit test you can use the http://docs.micronaut.io/snapshot/api/io/micronaut/runtime/server/EmbeddedServer.html[EmbeddedServer] interface
+<2> Register a `HttpClient` bean in the application context and point it to the embedded server URL. The `EmbeddedServer` interface provides the URL of the server under test which runs on a random port.
+<3> Creating HTTP Requests is easy thanks to Micronaut's fluid API.
 
 In order to satisfy the test, create an email constraints annotation
 
@@ -41,7 +40,7 @@ and a validator:
 include::{sourceDir}/src/main/java/example/micronaut/EmailConstraintsValidator.java[]
 ----
 
-Annotate Email with `EmailConstraints` and populate the `hasErrors` method.
+Annotate Email with `EmailConstraints`.
 
 [source,java]
 .src/main/kotlin/example/micronaut/EmailCmd.kt
@@ -50,6 +49,7 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/EmailCmd.kt[tag=clazzwith
 
 include::{sourceDir}/src/main/kotlin/example/micronaut/EmailCmd.kt[tag=properties]
 
-// Getters && Setters
+include::{sourceDir}/src/main/kotlin/example/micronaut/EmailCmd.kt[tag=settersandgetters]
+
 }
 ----
