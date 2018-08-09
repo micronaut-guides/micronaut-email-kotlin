@@ -6,7 +6,7 @@ ____
 
 Add a dependency to SendGrid SDK:
 
-[source,java]
+[source,groovy]
 .build.gradle
 ----
 include::{sourceDir}/build.gradle[tag=sendgrid]
@@ -15,7 +15,7 @@ include::{sourceDir}/build.gradle[tag=sendgrid]
 Create a service which encapsulates the integration with SendGrid. The bean will not be loaded if the
 system properties (`sendgrid.apikey`, `sendgrid.fromemail`) or environment variables (`SENDGRID_APIKEY`, `SENDGRID_FROM_EMAIL`) are not present.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/SendGridEmailCondition.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/SendGridEmailCondition.kt[]
@@ -23,13 +23,13 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/SendGridEmailCondition.kt
 
 Add a test:
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/SendGridEmailConditionSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/SendGridEmailConditionSpec.kt[]
 ----
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/SendGridEmailService.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/SendGridEmailService.kt[]

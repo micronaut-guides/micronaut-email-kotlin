@@ -4,7 +4,7 @@ ____
 
 Add a dependency to AWS SES SDK:
 
-[source,java]
+[source,groovy]
 .build.gradle
 ----
 include::{sourceDir}/build.gradle[tag=awsses]
@@ -13,7 +13,7 @@ include::{sourceDir}/build.gradle[tag=awsses]
 Create a service which encapsulates AWS credentials provider. The bean will not be loaded if the
 environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY`) or system properties ( `aws.accesskeyid`, `aws.secretkey`) are not present.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/AwsCredentialsProviderCondition.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/AwsCredentialsProviderCondition.kt[]
@@ -21,13 +21,13 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/AwsCredentialsProviderCon
 
 Add a test:
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/AwsCredentialsProviderConditionSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/AwsCredentialsProviderConditionSpec.kt[]
 ----
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/AwsCredentialsProviderService.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/AwsCredentialsProviderService.kt[]
@@ -40,7 +40,7 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/AwsCredentialsProviderSer
 Create a service which sends the email with AWS Simple Email Service. The bean will not be loaded if the
 environment variables (`AWS_REGION`, `AWS_SOURCE_EMAIL`) or system properties (`aws.region`, `aws.sourceemail`) are not present.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/AwsSesMailCondition.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/AwsSesMailCondition.kt[]
@@ -48,13 +48,13 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/AwsSesMailCondition.kt[]
 
 Add a test:
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/AwsSesMailConditionSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/AwsSesMailConditionSpec.kt[]
 ----
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/AwsSesMailService.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/AwsSesMailService.kt[]
@@ -68,7 +68,7 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/AwsSesMailService.kt[]
 
 Add a test:
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/AwsSesMailServiceSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/AwsSesMailServiceSpec.kt[]

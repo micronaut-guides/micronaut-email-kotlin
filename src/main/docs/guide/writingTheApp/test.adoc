@@ -4,7 +4,7 @@ In our acceptance test, beans `SendGridEmailService` or `AwsSesMailService` will
 
 Instead, we setup a Mock which we can verify interactions against.
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/MockEmailService.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/MockEmailService.kt[]
@@ -12,7 +12,7 @@ include::{sourceDir}/src/test/kotlin/example/micronaut/MockEmailService.kt[]
 
 Create the next test:
 
-[source,groovy]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/MailControllerSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/MailControllerSpec.kt[]

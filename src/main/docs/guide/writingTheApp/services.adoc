@@ -1,12 +1,12 @@
 Create an interface - `EmailService`. Any email provider present in the application should implement it.
 
-[source,java]
+[source,kotlin]
 .src/kotlin/main/example/micronaut/EmailService.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/EmailService.kt[]
 ----
 
-[source,java]
+[source,kotlin]
 .src/kotlin/main/example/micronaut/Email.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/Email.kt[]

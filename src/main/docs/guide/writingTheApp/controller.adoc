@@ -1,6 +1,6 @@
 Create `MailController` which use a collaborator, `emailService` to send and email.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/MailController.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/MailController.kt[]
@@ -16,7 +16,7 @@ include::{sourceDir}/src/main/kotlin/example/micronaut/MailController.kt[]
 
 The previous controller uses a POGO supplied in the request body as a JSON Payload
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/EmailCmd.kt
 ----
 class EmailCmd : Email {

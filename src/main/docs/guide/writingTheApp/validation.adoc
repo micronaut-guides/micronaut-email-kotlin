@@ -6,7 +6,7 @@ Hibernate Validator is a reference implementation of the validation API.
 
 Add a dependency to it:
 
-[source,java]
+[source,groovy]
 .build.gradle
 ----
 include::{sourceDir}/build.gradle[tag=hibernate-validator]
@@ -14,7 +14,7 @@ include::{sourceDir}/build.gradle[tag=hibernate-validator]
 
 Create the next test:
 
-[source,java]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/MailControllerValidationSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/MailControllerValidationSpec.kt[]
@@ -42,7 +42,7 @@ include::{sourceDir}/src/main/java/example/micronaut/EmailConstraintsValidator.j
 
 Annotate Email with `EmailConstraints`.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/EmailCmd.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/EmailCmd.kt[tag=clazzwithannotations]
