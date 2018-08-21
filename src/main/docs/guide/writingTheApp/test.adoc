@@ -1,4 +1,4 @@
-include::{commondir}/common-spek.adoc[]
+include::{commondir}/common-spek2.adoc[]
 
 In our acceptance test, beans `SendGridEmailService` or `AwsSesMailService` will not be loaded since system properties are not present.
 
