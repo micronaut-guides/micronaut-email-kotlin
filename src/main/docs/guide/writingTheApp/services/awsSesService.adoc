@@ -7,7 +7,7 @@ Add a dependency to AWS SES SDK:
 [source,groovy]
 .build.gradle
 ----
-include::{sourceDir}/build.gradle[tag=awsses]
+include::{sourceDir}/build.gradle[tag=awsses,indent=0]
 ----
 
 Create a service which encapsulates AWS credentials provider. The bean will not be loaded if the
