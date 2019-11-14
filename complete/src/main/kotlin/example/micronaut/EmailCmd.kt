@@ -1,9 +1,11 @@
 package example.micronaut
 
-//tag::clazzwithannotations[]
+import io.micronaut.core.annotation.Introspected
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
+//tag::clazzwithannotations[]
+@Introspected
 @EmailConstraints
 class EmailCmd : Email {
 //end::clazzwithannotations[]

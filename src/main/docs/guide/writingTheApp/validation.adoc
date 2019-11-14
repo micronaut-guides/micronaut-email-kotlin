@@ -40,7 +40,8 @@ and a validator:
 include::{sourceDir}/src/main/java/example/micronaut/EmailConstraintsValidator.java[]
 ----
 
-Annotate Email with `EmailConstraints`.
+Annotate `EmailCmd` with `EmailConstraints` and `@Introspected` (to generate the
+https://docs.micronaut.io/latest/guide/index.html#introspection[Bean Introspection information]).
 
 [source,kotlin]
 .src/main/kotlin/example/micronaut/EmailCmd.kt
