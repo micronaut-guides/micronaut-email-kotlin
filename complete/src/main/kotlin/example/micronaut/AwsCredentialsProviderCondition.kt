@@ -2,6 +2,7 @@ package example.micronaut
 
 import io.micronaut.context.condition.Condition
 import io.micronaut.context.condition.ConditionContext
+import io.micronaut.core.util.StringUtils
 
 class AwsCredentialsProviderCondition : Condition {
 
@@ -11,10 +12,6 @@ class AwsCredentialsProviderCondition : Condition {
     }
 
     private fun envOrSystemProperty(env: String, prop: String): Boolean {
-        return notBlankAndNotNull(System.getProperty(prop)) || notBlankAndNotNull(System.getenv(env))
-    }
-
-    private fun notBlankAndNotNull(str: String?): Boolean {
-        return str != null && str != ""
+        return StringUtils.isNotEmpty(System.getProperty(prop)) || StringUtils.isNotEmpty(System.getenv(env))
     }
 }
