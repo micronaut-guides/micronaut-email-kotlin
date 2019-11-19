@@ -6,19 +6,18 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.runtime.server.EmbeddedServer
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.it
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
-class MailControllerSpec: Spek({
+class MailControllerSpec : Spek({
 
     describe("MailController") {
 
-        var embeddedServer : EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java, mapOf("spec.name" to "mailcontroller"),
+        var embeddedServer: EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java, mapOf("spec.name" to "mailcontroller"),
                 "test")  // <1>
-        var client : RxHttpClient = RxHttpClient.create(embeddedServer.url)  // <2>
+        var client: RxHttpClient = RxHttpClient.create(embeddedServer.url)  // <2>
 
         it("/mail/send interacts once email service") {
             val cmd = EmailCmd()
@@ -36,14 +35,14 @@ class MailControllerSpec: Spek({
 
             assertTrue(emailService is MockEmailService)
 
-            val oldcount : Int  = (emailService as MockEmailService).emails.size
+            val oldcount: Int = (emailService as MockEmailService).emails.size
 
-            val rsp : HttpResponse<Any> = client.toBlocking().exchange(request)
+            val rsp: HttpResponse<Any> = client.toBlocking().exchange(request)
 
-            assertEquals(rsp.status, HttpStatus.OK)
+            assertEquals(HttpStatus.OK, rsp.status)
 
-            val count : Int  = (emailService as MockEmailService).emails.size
-            assertEquals(count, oldcount + 1) // <4>
+            val count: Int = (emailService as MockEmailService).emails.size
+            assertEquals(oldcount + 1, count) // <4>
         }
 
         afterGroup {
