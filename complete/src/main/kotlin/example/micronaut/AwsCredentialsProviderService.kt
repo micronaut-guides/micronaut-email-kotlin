@@ -23,7 +23,7 @@ class AwsCredentialsProviderService(@param:Value("\${AWS_ACCESS_KEY_ID:none}") v
             accessKey = accessKeyProp
         }
         if (secretKeyEnv != "none") {
-            secretKey = accessKeyEnv
+            secretKey = secretKeyEnv
         } else {
             secretKey = secretKeyProp
         }
